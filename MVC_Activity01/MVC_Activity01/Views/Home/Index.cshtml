@@ -12,7 +12,7 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td><a href="/Home/OrderDetails?No=@item.No&DocDate=@item.DocDate.ToShortDateString()&CustomerName=@item.CustomerName&Amount=@item.Amount">@item.No</a></td>
+                <td><a href="/Home/OrderDetails/@item.Id">@item.No</a></td>
                 <td>@item.DocDate.ToShortDateString()</td>
                 <td>@item.CustomerName</td>
                 <td>@item.Amount</td>

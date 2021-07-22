@@ -1,6 +1,8 @@
-﻿using MVC_Activity01.Models;
+﻿using MVC_Activity01.Data;
+using MVC_Activity01.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace MVC_Activity01.Controllers
@@ -10,25 +12,7 @@ namespace MVC_Activity01.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Order Details";
-
-            var list = new List<Order>();
-
-            var order = new Order();
-            order.No = "001";
-            order.DocDate = DateTime.Now;
-            order.CustomerName = "test";
-            order.Amount = 1000;
-
-            list.Add(order);
-
-            var order2 = new Order();
-            order2.No = "002";
-            order2.DocDate = DateTime.Now;
-            order2.CustomerName = "test2";
-            order2.Amount = 2000;
-
-            list.Add(order2);
-
+            var list = MockDb.Orders;
             return View(list);
         }
 
@@ -45,11 +29,14 @@ namespace MVC_Activity01.Controllers
 
             return View();
         }
-        public ActionResult OrderDetails(Order data)
+        public ActionResult OrderDetails(int id)
         {
             ViewBag.Message = "View Details";
 
-            return View(data);
+            var list = MockDb.Orders;
+            var model = list.FirstOrDefault(m => m.Id == id);
+
+            return View(model);
         }
     }
 }
