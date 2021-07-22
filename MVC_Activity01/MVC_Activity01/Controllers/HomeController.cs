@@ -10,6 +10,7 @@ namespace MVC_Activity01.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.Title = "Order Details";
             return View();
         }
 
@@ -24,6 +25,15 @@ namespace MVC_Activity01.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+        public ActionResult OrderDetails(string orderNo, string orderDate, string customerName, string totalAmount)
+        {
+            ViewBag.Message = "View Details";
+            ViewBag.OrderNumber = orderNo;
+            ViewBag.OrderDate = orderDate;
+            ViewBag.customerName = customerName;
+            ViewBag.totalAmount = totalAmount;
             return View();
         }
     }
