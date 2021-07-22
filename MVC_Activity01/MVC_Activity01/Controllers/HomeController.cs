@@ -1,7 +1,6 @@
-﻿using System;
+﻿using MVC_Activity01.Models;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MVC_Activity01.Controllers
@@ -11,7 +10,26 @@ namespace MVC_Activity01.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Order Details";
-            return View();
+
+            var list = new List<Order>();
+
+            var order = new Order();
+            order.No = "001";
+            order.DocDate = DateTime.Now;
+            order.CustomerName = "test";
+            order.Amount = 1000;
+
+            list.Add(order);
+
+            var order2 = new Order();
+            order2.No = "002";
+            order2.DocDate = DateTime.Now;
+            order2.CustomerName = "test2";
+            order2.Amount = 2000;
+
+            list.Add(order2);
+
+            return View(list);
         }
 
         public ActionResult About()
@@ -27,14 +45,11 @@ namespace MVC_Activity01.Controllers
 
             return View();
         }
-        public ActionResult OrderDetails(string orderNo, string orderDate, string customerName, string totalAmount)
+        public ActionResult OrderDetails(Order data)
         {
             ViewBag.Message = "View Details";
-            ViewBag.OrderNumber = orderNo;
-            ViewBag.OrderDate = orderDate;
-            ViewBag.customerName = customerName;
-            ViewBag.totalAmount = totalAmount;
-            return View();
+
+            return View(data);
         }
     }
 }

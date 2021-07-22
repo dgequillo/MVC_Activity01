@@ -1,15 +1,17 @@
-﻿
+﻿@model MVC_Activity01.Models.Order
+
 <h2>@ViewBag.Message</h2>
-<label>Order Number: @ViewBag.OrderNumber</label>
+
+<label>Order Number:@Model.No </label>
 <br />
 <br />
-<label>Order Date: @ViewBag.OrderDate</label>
+<label>Order Date:@Model.DocDate.ToShortDateString() </label>
 <br />
 <br />
-<label>Customer Name: @ViewBag.customerName</label>
+<label>Customer Name:@Model.CustomerName</label>
 <br />
 <br />
-<label>Total Amount: @ViewBag.totalAmount</label>
+<label>Total Amount:@Model.Amount </label>
 <br />
 <br />
 <div>
