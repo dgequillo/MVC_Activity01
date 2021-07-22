@@ -1,7 +1,8 @@
-﻿using System;
+﻿using MVC_Activity01.Data;
+using MVC_Activity01.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MVC_Activity01.Controllers
@@ -10,7 +11,9 @@ namespace MVC_Activity01.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            ViewBag.Title = "Order Details";
+            var list = MockDb.Orders;
+            return View(list);
         }
 
         public ActionResult About()
@@ -25,6 +28,15 @@ namespace MVC_Activity01.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        public ActionResult OrderDetails(int id)
+        {
+            ViewBag.Message = "View Details";
+
+            var list = MockDb.Orders;
+            var model = list.FirstOrDefault(m => m.Id == id);
+
+            return View(model);
         }
     }
 }
