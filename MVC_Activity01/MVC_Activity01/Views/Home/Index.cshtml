@@ -12,7 +12,10 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td><a href="/Home/OrderDetails/@item.Id">@item.No</a></td>
+                <td>
+                    @Html.ActionLink(item.No, "OrderDetails", new { id = item.Id })
+                </td>
+              
                 <td>@item.DocDate.ToShortDateString()</td>
                 <td>@item.CustomerName</td>
                 <td>@item.Amount</td>
