@@ -141,6 +141,10 @@
     <Compile Include="Migrations\202107220628574_Add_Customer.designer.cs">
       <DependentUpon>202107220628574_Add_Customer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107270714034_Update_Customer.cs" />
+    <Compile Include="Migrations\202107270714034_Update_Customer.designer.cs">
+      <DependentUpon>202107270714034_Update_Customer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CustomerDb.cs" />
     <Compile Include="Models\Customers.cs" />
@@ -210,6 +214,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202107220628574_Add_Customer.resx">
       <DependentUpon>202107220628574_Add_Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107270714034_Update_Customer.resx">
+      <DependentUpon>202107270714034_Update_Customer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

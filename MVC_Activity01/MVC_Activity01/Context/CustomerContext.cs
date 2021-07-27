@@ -16,7 +16,6 @@ namespace MVC_Activity01.Context
             
         }
         public DbSet<Customers> Customers { get; set; }
-        public DbSet<CustomersDTO> CustomersDTO { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("dbo");
