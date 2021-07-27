@@ -11,6 +11,7 @@ namespace MVC_Activity01.Controllers
     {
         CustomerContext db = new CustomerContext();
         // GET: Customer
+
         public ActionResult Index()
         { 
             ViewBag.Title = "Customer List";
