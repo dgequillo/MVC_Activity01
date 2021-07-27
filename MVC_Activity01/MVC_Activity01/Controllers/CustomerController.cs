@@ -1,10 +1,8 @@
 ﻿using MVC_Activity01.Context;
-using System.Linq;
-using System.Web.Mvc;
 using MVC_Activity01.Models;
 using System;
-using System.Collections.Generic;
-using AutoMapper;
+using System.Linq;
+using System.Web.Mvc;
 namespace MVC_Activity01.Controllers
 {
     public class CustomerController : Controller
@@ -13,29 +11,47 @@ namespace MVC_Activity01.Controllers
         // GET: Customer
 
         public ActionResult Index()
-        { 
+        {
             ViewBag.Title = "Customer List";
             var list = db.Customers.ToList();
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<Customers, CustomersDTO>());
-            var mapper = new Mapper(config);
-            var custDTO = mapper.Map<List<CustomersDTO>>(list);
-            return View(custDTO);
+
+            // simple mapping
+            var model = list.Select(c => new CustomersDTO
+            {
+                Id = c.Id,
+                Firstname = c.Firstname,
+                Lastname = c.Lastname
+            }).ToList();
+
+            //var config = new MapperConfiguration(cfg => cfg.CreateMap<Customers, CustomersDTO>());
+            //var mapper = new Mapper(config);
+            //var custDTO = mapper.Map<List<CustomersDTO>>(list);
+
+            return View(model);
         }
         [HttpGet]
         public ActionResult Create()
         {
-            Customers model = new Customers();
+            CustomersDTO model = new CustomersDTO();
             model.Birthday = DateTime.Today;
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Create(Customers data)
+        public ActionResult Create(CustomersDTO data)
         {
+            // simple mapping
+            var customer = new Customers
+            {
+                Id = data.Id,
+                Firstname = data.Firstname,
+                Lastname = data.Lastname
+            };
+
             using (var db = new CustomerContext())
             {
 
-                db.Customers.Add(data);
+                db.Customers.Add(customer);
                 db.SaveChanges();
             }
             return RedirectToAction("Index");
