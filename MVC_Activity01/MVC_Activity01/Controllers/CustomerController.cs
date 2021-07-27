@@ -1,10 +1,8 @@
 ﻿using MVC_Activity01.Context;
-using System.Linq;
-using System.Web.Mvc;
 using MVC_Activity01.Models;
 using System;
-using System.Collections.Generic;
-using AutoMapper;
+using System.Linq;
+using System.Web.Mvc;
 namespace MVC_Activity01.Controllers
 {
     public class CustomerController : Controller
@@ -13,7 +11,7 @@ namespace MVC_Activity01.Controllers
         // GET: Customer
 
         public ActionResult Index()
-        { 
+        {
             ViewBag.Title = "Customer List";
             var list = db.Customers.ToList();
             var model = list.Select(c => new CustomersDTO
