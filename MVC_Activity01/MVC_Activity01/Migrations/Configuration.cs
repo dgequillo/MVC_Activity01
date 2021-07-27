@@ -10,6 +10,7 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+          //  AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(MVC_Activity01.Context.CustomerContext context)

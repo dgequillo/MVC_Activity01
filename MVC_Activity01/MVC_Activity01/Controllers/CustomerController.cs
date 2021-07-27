@@ -3,7 +3,8 @@ using System.Linq;
 using System.Web.Mvc;
 using MVC_Activity01.Models;
 using System;
-
+using System.Collections.Generic;
+using AutoMapper;
 namespace MVC_Activity01.Controllers
 {
     public class CustomerController : Controller
@@ -11,12 +12,14 @@ namespace MVC_Activity01.Controllers
         CustomerContext db = new CustomerContext();
         // GET: Customer
         public ActionResult Index()
-        {
+        { 
             ViewBag.Title = "Customer List";
             var list = db.Customers.ToList();
-            return View(list);
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Customers, CustomersDTO>());
+            var mapper = new Mapper(config);
+            var custDTO = mapper.Map<List<CustomersDTO>>(list);
+            return View(custDTO);
         }
-
         [HttpGet]
         public ActionResult Create()
         {
@@ -30,6 +33,7 @@ namespace MVC_Activity01.Controllers
         {
             using (var db = new CustomerContext())
             {
+
                 db.Customers.Add(data);
                 db.SaveChanges();
             }
