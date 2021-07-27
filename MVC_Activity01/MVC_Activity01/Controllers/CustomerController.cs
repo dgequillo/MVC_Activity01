@@ -16,28 +16,50 @@ namespace MVC_Activity01.Controllers
         { 
             ViewBag.Title = "Customer List";
             var list = db.Customers.ToList();
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<Customers, CustomersDTO>());
-            var mapper = new Mapper(config);
-            var custDTO = mapper.Map<List<CustomersDTO>>(list);
-            return View(custDTO);
+            var model = list.Select(c => new CustomersDTO
+            {
+                Id = c.Id,
+                Firstname = c.Firstname,
+                Middlename = c.Middlename,
+                Lastname = c.Lastname,
+                Birthday = c.Birthday,
+                Gender = c.Gender,
+                Age = c.Age,
+                Address = c.Address,
+                EmailAdress = c.EmailAdress,
+                Status = c.Status
+
+            }).ToList();
+
+            return View(model);
         }
         [HttpGet]
         public ActionResult Create()
         {
-            Customers model = new Customers();
+            CustomersDTO model = new CustomersDTO();
             model.Birthday = DateTime.Today;
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Create(Customers data)
+        public ActionResult Create(CustomersDTO data)
         {
-            using (var db = new CustomerContext())
+            var customer = new Customers
             {
+                Id = data.Id,
+                Firstname = data.Firstname,
+                Middlename = data.Middlename,
+                Lastname = data.Lastname,
+                Birthday = data.Birthday,
+                Gender = data.Gender,
+                Age = data.Age,
+                Address = data.Address,
+                EmailAdress = data.EmailAdress,
+                Status = data.Status
+            };
 
-                db.Customers.Add(data);
-                db.SaveChanges();
-            }
+            db.Customers.Add(customer);
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 
