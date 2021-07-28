@@ -1,0 +1,87 @@
+﻿@model MVC_Activity01.Models.CustomersDTO
+
+
+@using (Html.BeginForm("Create", "Customer", FormMethod.Post))
+{
+    <form cellpadding="0" cellspacing="0" class="container">
+        <div>
+            <label colspan="2" align="center">Customer Details</label>
+        </div>
+        <div class="form-row">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.Firstname, new { @class = "control-label" })
+                <div>
+                    @Html.TextBoxFor(m => m.Firstname, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.Middlename, new { @class = "control-label" })
+                <div>
+                    @Html.TextBoxFor(m => m.Middlename, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.Lastname, new { @class = "control-label" })
+                <div>
+                    @Html.TextBoxFor(m => m.Lastname, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.Birthday, new { @class = "control-label" })
+                <div>
+                    @*@Html.TextBoxFor(m => m.Birthday)*@
+                    @Html.TextBoxFor(m => m.Birthday, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.Gender, new { @class = "control-label" })
+                <div>
+                    @Html.DropDownListFor(m => m.Gender, new List<SelectListItem>
+                   { new SelectListItem{Text="Male", Value="Male"},
+                     new SelectListItem{Text="Female", Value="Female"}}, "Please select", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.Age, new { @class = "control-label" })
+                <div>
+                    @Html.TextBoxFor(m => m.Age, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.Address, new { @class = "control-label" })
+                <div>
+                    @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.EmailAdress, new { @class = "control-label" })
+                <div>
+                    @Html.TextBoxFor(m => m.EmailAdress, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.Status, new { @class = "control-label" })
+                <div>
+                    @Html.TextBoxFor(m => m.Status, new { @class = "form-control" })<br />
+                </div>
+
+            </div>
+        </div><br />
+        <div class="form-row">
+            <div class="col-md-9"></div>
+            <div>
+                <input type="submit" value="Submit" class="btn btn-success btn-lg" />
+                <a href="/customer/" onmouseover="this.style.color='#0f0'"
+                   onmouseout="this.style.color='#00f'" class="btn btn-primary btn-lg">
+                    Back
+                </a>
+            </div>
+        </div>
+    </form>
+}
