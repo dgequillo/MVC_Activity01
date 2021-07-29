@@ -145,11 +145,21 @@
     <Compile Include="Migrations\202107270714034_Update_Customer.designer.cs">
       <DependentUpon>202107270714034_Update_Customer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107280436518_DBName_Customers.cs" />
+    <Compile Include="Migrations\202107280436518_DBName_Customers.designer.cs">
+      <DependentUpon>202107280436518_DBName_Customers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107280732167_Add_Order.cs" />
+    <Compile Include="Migrations\202107280732167_Add_Order.designer.cs">
+      <DependentUpon>202107280732167_Add_Order.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CustomerDb.cs" />
-    <Compile Include="Models\Customers.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomersDTO.cs" />
+    <Compile Include="Models\FilterData.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -193,6 +203,7 @@
     <Content Include="Views\Customer\Create.cshtml" />
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Customer\CustomerView.cshtml" />
+    <Content Include="Views\Shared\_OrderList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -217,6 +228,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107270714034_Update_Customer.resx">
       <DependentUpon>202107270714034_Update_Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107280436518_DBName_Customers.resx">
+      <DependentUpon>202107280436518_DBName_Customers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107280732167_Add_Order.resx">
+      <DependentUpon>202107280732167_Add_Order.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

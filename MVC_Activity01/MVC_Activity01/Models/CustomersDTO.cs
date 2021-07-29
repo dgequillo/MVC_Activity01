@@ -7,7 +7,7 @@ using System.Web;
 namespace MVC_Activity01.Models
 {
 
-    public class CustomersDTO
+    public class CustomerDTO
     {
        
         public int Id { get; set; }
@@ -24,6 +24,8 @@ namespace MVC_Activity01.Models
         [Display(Name = "Email")]
         public string EmailAdress { get; set; }
         public string Status { get; set; }
+
+        public string Name { get; set; }
     }
 
 

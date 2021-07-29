@@ -1,4 +1,5 @@
-﻿using MVC_Activity01.Data;
+﻿using MVC_Activity01.Context;
+using MVC_Activity01.Data;
 using MVC_Activity01.Models;
 using System;
 using System.Collections.Generic;
@@ -9,17 +10,58 @@ namespace MVC_Activity01.Controllers
 {
     public class HomeController : Controller
     {
+       private CustomerContext db = new CustomerContext();
         public ActionResult Index()
         {
             ViewBag.Title = "Order Details";
-            var list = MockDb.Orders;
-            return View(list);
+            var customers = db.Customers.ToList();
+            var customerModel = customers.Select(c => new CustomerDTO
+            {
+                Id = c.Id,
+                Name = $"{c.Lastname}, {c.Firstname} {c.Middlename}"
+            }).ToList();
+
+            SelectList CustomerList = new SelectList(customerModel, "Id", "Name");
+            ViewData["CustomerList"] = CustomerList;
+            //  var list = MockDb.Orders;
+            return View();
+        }
+
+        public ActionResult OrderList(int id = 0)
+        {
+            var customers = db.Customers.ToList();
+            var customerModel = customers.Select(c => new CustomerDTO
+            {
+                Id = c.Id,
+                Firstname = c.Firstname,
+                Middlename = c.Middlename,
+                Lastname = c.Lastname,
+                Birthday = c.Birthday,
+                Gender = c.Gender,
+                Age = c.Age,
+                Address = c.Address,
+                EmailAdress = c.EmailAdress,
+                Status = c.Status,
+                Name = $"{c.Lastname}, {c.Firstname} {c.Middlename}"
+            }).ToList();
+
+            var orderList = db.Orders.Where(x => x.CustomerId == id || id == 0).ToList();
+            var modelOrder = orderList.Select(c => new OrderDTO
+            {
+                Id = c.Id,
+                No = c.No,
+                OrderName = c.OrderName,
+                DocDate = c.DocDate,
+                CustomerId = c.CustomerId,
+                Amount = c.Amount,
+                Customer = customerModel.FirstOrDefault(x => x.Id == c.CustomerId)
+            }).ToList();
+            return PartialView("_OrderList", modelOrder);
         }
 
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
@@ -29,6 +71,7 @@ namespace MVC_Activity01.Controllers
 
             return View();
         }
+
         public ActionResult OrderDetails(int id)
         {
             ViewBag.Message = "View Details";

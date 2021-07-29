@@ -1,27 +1,25 @@
-﻿@model IEnumerable<MVC_Activity01.Models.Order>
-
+﻿
 <div class="jumbotron">
     <h3>@ViewBag.Title</h3>
-    <table style="width:100%">
-        <tr>
-            <th>Order Number</th>
-            <th>Order Date</th>
-            <th>Customer Name</th>
-            <th>Total Amount</th>
-        </tr>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.ActionLink(item.No, "OrderDetails", new { id = item.Id })
-                </td>
-              
-                <td>@item.DocDate.ToShortDateString()</td>
-                <td>@item.CustomerName</td>
-                <td>@item.Amount</td>
-            </tr>
-        }
+    @Html.DropDownList("CustomerList", null, "Select Name")
 
-    </table>
-
+    @{
+        Html.RenderAction("OrderList", "Home");
+    }
 </div>
+
+@section scripts {
+    <script>
+        $("#CustomerList").change(function () {
+            var id = this.value;
+            $.ajax({
+                url: '@Url.Action("OrderList", "Home")',
+                data: { id: id },
+                type: 'POST',
+                success: function (result) {
+                    $("#ordList").html(result);
+                }
+            });
+        });
+    </script>
+}
