@@ -133,7 +133,7 @@
     <Compile Include="Context\CustomerContext.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Data\MockDb.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -152,6 +152,10 @@
     <Compile Include="Migrations\202107280732167_Add_Order.cs" />
     <Compile Include="Migrations\202107280732167_Add_Order.designer.cs">
       <DependentUpon>202107280732167_Add_Order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107290811427_Update_TableName_Order.cs" />
+    <Compile Include="Migrations\202107290811427_Update_TableName_Order.designer.cs">
+      <DependentUpon>202107290811427_Update_TableName_Order.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CustomerDb.cs" />
@@ -198,16 +202,16 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\OrderDetails.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Customer\Create.cshtml" />
     <Content Include="Views\Customer\Edit.cshtml" />
-    <Content Include="Views\Customer\CustomerView.cshtml" />
-    <Content Include="Views\Shared\_OrderList.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Order\_OrderDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="AutoMapper\" />
+    <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -234,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107280732167_Add_Order.resx">
       <DependentUpon>202107280732167_Add_Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107290811427_Update_TableName_Order.resx">
+      <DependentUpon>202107290811427_Update_TableName_Order.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

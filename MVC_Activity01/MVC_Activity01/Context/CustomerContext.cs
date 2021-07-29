@@ -31,7 +31,7 @@ namespace MVC_Activity01.Context
             modelBuilder.Entity<Customer>().Property(c => c.Gender).HasMaxLength(10);
 
             modelBuilder.Entity<Order>()
-               .ToTable("Order");
+               .ToTable("Orders");
 
             modelBuilder.Entity<Order>().HasKey(c => c.Id);
             modelBuilder.Entity<Order>().Property(c => c.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
