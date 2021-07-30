@@ -158,10 +158,8 @@
       <DependentUpon>202107290811427_Update_TableName_Order.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\CustomerDb.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomersDTO.cs" />
-    <Compile Include="Models\FilterData.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -13,7 +13,7 @@
         $("#CustomerList").change(function () {
             var id = this.value;
             $.ajax({
-                url: '@Url.Action("OrderDetails", "Order")',
+                url: '@Url.Action("OrderDetails", "Orders")',
                 data: { id: id },
                 type: 'POST',
                 success: function (result) {
