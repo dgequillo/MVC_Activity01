@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web.Mvc;
 namespace MVC_Activity01.Controllers
 {
-    public class CustomerController : Controller
+    public class CustomersController : Controller
     {
         CustomerContext db = new CustomerContext();
         // GET: Customer

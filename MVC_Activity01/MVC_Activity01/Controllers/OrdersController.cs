@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace MVC_Activity01.Controllers
 {
-    public class OrderController : Controller
+    public class OrdersController : Controller
     {
         private CustomerContext db = new CustomerContext();
         // GET: Order
