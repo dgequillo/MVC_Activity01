@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web.Mvc;
 namespace MVC_Activity01.Controllers
 {
-    public class CustomerController : Controller
+    public class CustomersController : Controller
     {
         CustomerContext db = new CustomerContext();
         // GET: Customer
@@ -14,7 +14,7 @@ namespace MVC_Activity01.Controllers
         {
             ViewBag.Title = "Customer List";
             var list = db.Customers.ToList();
-            var model = list.Select(c => new CustomersDTO
+            var model = list.Select(c => new CustomerDTO
             {
                 Id = c.Id,
                 Firstname = c.Firstname,
@@ -34,15 +34,15 @@ namespace MVC_Activity01.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            CustomersDTO model = new CustomersDTO();
+            CustomerDTO model = new CustomerDTO();
             model.Birthday = DateTime.Today;
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Create(CustomersDTO data)
+        public ActionResult Create(CustomerDTO data)
         {
-            var customer = new Customers
+            var customer = new Customer
             {
                 Id = data.Id,
                 Firstname = data.Firstname,
@@ -64,13 +64,13 @@ namespace MVC_Activity01.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            Customers model = new Customers();
+            Customer model = new Customer();
             model = db.Customers.FirstOrDefault(x => x.Id == id);
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Edit(Customers data)
+        public ActionResult Edit(Customer data)
         {
             using (var db = new CustomerContext())
             {

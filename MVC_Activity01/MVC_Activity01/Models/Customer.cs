@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MVC_Activity01.Models
 {
-    public class Customers
+    public class Customer
     {
         [Key]
         public int Id { get; set; }

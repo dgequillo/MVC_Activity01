@@ -1,0 +1,26 @@
+﻿
+<div class="jumbotron">
+    <h3>@ViewBag.Title</h3>
+    @Html.DropDownList("CustomerList", null, "Select Name")
+
+    @{
+        Html.RenderAction("OrderDetails", "Orders");
+    }
+</div>
+
+@section scripts {
+    <script>
+        $("#CustomerList").change(function () {
+            var id = this.value;
+            $.ajax({
+                url: '@Url.Action("OrderDetails", "Orders")',
+                data: { id: id },
+                type: 'POST',
+                success: function (result) {
+                    $("#ordList").html(result);
+                }
+            });
+        });
+    </script>
+}
+

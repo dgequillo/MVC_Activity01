@@ -15,19 +15,34 @@ namespace MVC_Activity01.Context
         {
             
         }
-        public DbSet<Customers> Customers { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Order> Orders { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("dbo");
-            modelBuilder.Entity<Customers>()
-                .ToTable("Customer");
+            modelBuilder.Entity<Customer>()
+                .ToTable("Customers");
 
-            modelBuilder.Entity<Customers>().HasKey(c => c.Id);
-            modelBuilder.Entity<Customers>().Property(c => c.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<Customers>().Property(c => c.Firstname).HasMaxLength(64);
-            modelBuilder.Entity<Customers>().Property(c => c.Middlename).HasMaxLength(64);
-            modelBuilder.Entity<Customers>().Property(c => c.Lastname).HasMaxLength(64);
-            modelBuilder.Entity<Customers>().Property(c => c.Gender).HasMaxLength(10);
+            modelBuilder.Entity<Customer>().HasKey(c => c.Id);
+            modelBuilder.Entity<Customer>().Property(c => c.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<Customer>().Property(c => c.Firstname).HasMaxLength(64);
+            modelBuilder.Entity<Customer>().Property(c => c.Middlename).HasMaxLength(64);
+            modelBuilder.Entity<Customer>().Property(c => c.Lastname).HasMaxLength(64);
+            modelBuilder.Entity<Customer>().Property(c => c.Gender).HasMaxLength(10);
+
+            modelBuilder.Entity<Order>()
+               .ToTable("Orders");
+
+            modelBuilder.Entity<Order>().HasKey(c => c.Id);
+            modelBuilder.Entity<Order>().Property(c => c.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<Order>().Property(c => c.No).HasMaxLength(10);
+            modelBuilder.Entity<Order>().Property(c => c.OrderName).HasMaxLength(64);
+            modelBuilder.Entity<Order>().Property(c => c.Amount).HasPrecision(18,2);
+
+            modelBuilder.Entity<Order>()
+                 .HasRequired(c => c.Customer)
+                 .WithMany()
+                 .HasForeignKey(d => d.CustomerId);
         }
     }
 }

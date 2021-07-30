@@ -1,7 +1,7 @@
-﻿@model IEnumerable<MVC_Activity01.Models.CustomersDTO>
+﻿@model IEnumerable<MVC_Activity01.Models.CustomerDTO>
 
 <div class="jumbotron">
-
+        
     <h3>@ViewBag.Title</h3>
     <div style="margin-left:86%; margin-bottom:30px;">
         @Html.ActionLink("Add Customer", "Create", null, new { @class = "btn btn-success btn-md" })
@@ -10,7 +10,6 @@
     <table style="width:100%" class="table-responsive">
 
         <tr>
-            <th>Id</th>
             <th>Firstname</th>
             <th>Middlename</th>
             <th>Lastname</th>
@@ -19,13 +18,11 @@
             <th>Age</th>
             <th>Address</th>
             <th>Email</th>
-            <th>Status</th>
             <th>Action</th>
         </tr>
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.Id</td>
                 <td>@item.Firstname</td>
                 <td>@item.Middlename</td>
                 <td>@item.Lastname</td>
@@ -34,7 +31,6 @@
                 <td>@item.Age</td>
                 <td>@item.Address</td>
                 <td>@item.EmailAdress</td>
-                <td>@item.Status</td>
                 <td> @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })</td>
             </tr>
         }
