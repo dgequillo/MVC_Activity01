@@ -134,6 +134,8 @@
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\Orders_ItemsController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -157,11 +159,19 @@
     <Compile Include="Migrations\202107290811427_Update_TableName_Order.designer.cs">
       <DependentUpon>202107290811427_Update_TableName_Order.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107310104402_Add_OrderItem_and_Product.cs" />
+    <Compile Include="Migrations\202107310104402_Add_OrderItem_and_Product.designer.cs">
+      <DependentUpon>202107310104402_Add_OrderItem_and_Product.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomersDTO.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDTO.cs" />
+    <Compile Include="Models\Orders_Items.cs" />
+    <Compile Include="Models\Orders_ItemsDTO.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -205,11 +215,19 @@
     <Content Include="Views\Customers\Edit.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
     <Content Include="Views\Orders\_OrderDetails.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\Orders\_ProductModal.cshtml" />
+    <Content Include="Views\Orders\_OrderList.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="AutoMapper\" />
     <Folder Include="Data\" />
+    <Folder Include="Views\Orders_Items\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -239,6 +257,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107290811427_Update_TableName_Order.resx">
       <DependentUpon>202107290811427_Update_TableName_Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107310104402_Add_OrderItem_and_Product.resx">
+      <DependentUpon>202107310104402_Add_OrderItem_and_Product.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

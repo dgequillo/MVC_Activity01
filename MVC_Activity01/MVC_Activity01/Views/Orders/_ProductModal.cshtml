@@ -1,0 +1,67 @@
+﻿@model MVC_Activity01.Models.Orders_ItemsDTO
+
+
+<div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+            <h5 class="modal-title">Add Order</h5>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+            <div class="form-row">
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.ProductName, new { @class = "control-label" })
+                    <div>
+                        @Html.DropDownList("ProductId", null, "Select Product", new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.ProductCode, new { @class = "control-label" })
+                    <div>
+                        @Html.TextBoxFor(m => m.ProductCode, null, new { @class = "form-control", @readonly = "readonly"})
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.Quantity, new { @class = "control-label" })
+                    <div>
+                        @Html.TextBoxFor(m => m.Quantity, null, new { @class = "form-control"})
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.Price, null, new { @class = "control-label" })
+                    <div>
+                        @Html.TextBoxFor(m => m.Price, new { @class = "form-control", @readonly = "readonly"})
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.Amount, new { @class = "control-label" })
+                    <div>
+                        @Html.TextBoxFor(m => m.Amount, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer form-row">
+            <div class="col-md-12" style="margin-top:20px;">
+                @*<button type="button" id="updateButton" class="btn btn-primary" onclick="productUpdate();"> Add </button>*@
+                <button type="button" class="btn btn-primary btnaddOrder" id="btnaddOrder">Add</button>
+                @*<span id="btnadd"></span>*@
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
