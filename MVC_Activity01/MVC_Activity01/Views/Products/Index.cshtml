@@ -1,0 +1,31 @@
+﻿@model IEnumerable<MVC_Activity01.Models.ProductDTO>
+
+<div class="jumbotron">
+
+    <h3>@ViewBag.Title</h3>
+    <div style="margin-left:83%; margin-bottom:30px;">
+        <div>
+            @Html.ActionLink("Add Product", "Create", null, new { @class = "btn btn-success btn-md" })
+        </div>
+    </div>
+    <table style="width:100%" class="table-responsive">
+
+        <tr>
+            <th>Product Code</th>
+            <th>Product Name</th>
+            <th>Stack On Hand</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Code</td>
+                <td>@item.Name</td>
+                <td>@item.StockOnHand</td>
+                <td>@item.Price</td>
+                <td> @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })</td>
+            </tr>
+        }
+    </table>
+</div>

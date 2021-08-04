@@ -16,5 +16,6 @@ namespace MVC_Activity01.Models
         public int CustomerId { get; set; }
         public decimal Amount { get; set; }
         public CustomerDTO Customer { get; set; }
+        public List<Orders_ItemsDTO> Items { get; set; }
     }
 }

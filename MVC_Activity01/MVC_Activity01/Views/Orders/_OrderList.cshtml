@@ -1,0 +1,37 @@
+﻿@model IEnumerable<MVC_Activity01.Models.OrderDTO>
+
+@*Shared Folder Partial View*@
+<div id="orderLists">
+    <table style="width:100%;margin-top:10px;">
+        <tr>
+            <th>Product Code</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Amount</th>
+            <th> </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                   
+                </td>
+                <td>
+                    <input type="text" name="item_productName[]" id="productName" class="form-control productName" value="" readonly />
+                </td>
+                <td>
+                    <input type="text" name="item_productQuantity[]" id="Quantity" class="form-control Quantity" value="" readonly />
+                </td>
+                <td>
+                    <input type="text" name="item_productPrice[]" id="Price" class="form-control Price" value="" readonly />
+                </td>
+                <td>
+                    <input type="text" name="item_productAmount[]" id="Amount" class="form-control Amount" value="" readonly />
+                </td>
+                <td> @Html.ActionLink("Detail", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })</td>
+            </tr>
+        }
+
+    </table>
+</div>

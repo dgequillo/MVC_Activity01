@@ -1,0 +1,53 @@
+﻿@model MVC_Activity01.Models.ProductDTO
+
+
+@using (Html.BeginForm("Create", "Products", FormMethod.Post))
+{
+    <div>
+        <label colspan="2" align="center">Add Product</label>
+    </div>
+    <div class="form-row">
+        <div class="col-md-12">
+            @Html.LabelFor(m => m.Code, new { @class = "control-label" })
+            <div>
+                @Html.TextBoxFor(m => m.Code, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col-md-12">
+            @Html.LabelFor(m => m.Name, new { @class = "control-label" })
+            <div>
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col-md-12">
+            @Html.LabelFor(m => m.StockOnHand, new { @class = "control-label" })
+            <div>
+                @Html.TextBoxFor(m => m.StockOnHand, new { @class = "form-control", type = "number" })
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-12">
+            @Html.LabelFor(m => m.Price, new { @class = "control-label" })
+            <div>
+                @Html.TextBoxFor(m => m.Price, new { @class = "form-control", type = "number" })
+            </div><br />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-1"></div>
+        <div>
+            <input type="submit" value="Submit" class="btn btn-success btn-lg" />
+            <a href="/product/" onmouseover="this.style.color='#0f0'"
+               onmouseout="this.style.color='#00f'" class="btn btn-primary btn-lg">
+                Back
+            </a>
+        </div>
+    </div>
+}
