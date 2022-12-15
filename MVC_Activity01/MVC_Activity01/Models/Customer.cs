@@ -27,7 +27,7 @@ namespace MVC_Activity01.Models
 
         public string Status { get; set; }
 
-        //public CustomerView CustomerView { get; set; }
+       
     }
 
 }
